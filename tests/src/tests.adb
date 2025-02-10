@@ -157,7 +157,7 @@ begin
       Ada.Text_IO.New_Line;
       Ada.Text_IO.New_Line;
       --  Test Count
-      Test_Deck := Create ([ C (Spades, Ace),
+      Test_Deck := Create ([C (Spades, Ace),
                            C (Spades, Ace),
                            C (Hearts, King)]);
       Assert (Test_Deck.Count (Which_Suit => Spades, Which_Rank => Ace) = 2,
