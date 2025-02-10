@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" href="./robodoc.css" type="text/css" />
+<script src="./robodoc.js"></script>
+<title>cards.ads</title>
+<!-- Source: ./src/cards.ads -->
+<!-- Generated with ROBODoc Version 4.99.44 (Jan 30 2021) -->
+</head>
+<body>
+<div id="logo">
+<a name="robo_top_of_doc">UUIDs</a>
+</div> <!-- logo -->
+<div id="navigation">
+<a class="menuitem" href="./toc_index.html#top">Table of Contents</a>
+<a class="menuitem" href="./sources.html#top">Source files</a>
+<a class="menuitem" href="./index.html#top">Index</a>
+<a class="menuitem" href="./robo_constants.html#top">Constants</a>
+<a class="menuitem" href="./robo_subprograms.html#top">Subprograms</a>
+<a class="menuitem" href="./robo_packages.html#top">Packages</a>
+<a class="menuitem" href="./robo_methods.html#top">Methods</a>
+<a class="menuitem" href="./robo_types.html#top">Types</a>
+</div> <!-- navigation -->
+<div id="content">
+<h3>TABLE OF CONTENTS</h3>
+<ul>
+<li>1. <a href="#robo0">Cards/Cards</a></li>
+<ul>
+<li>1.1. <a href="#robo1">Cards/Cards.Black_White</a></li>
+<li>1.2. <a href="#robo2">Cards/Cards.Card</a></li>
+<ul>
+<li>1.2.1. <a href="#robo16">Cards.Card/As_Box</a></li>
+<li>1.2.2. <a href="#robo17">Cards.Card/Is_Ace</a></li>
+<li>1.2.3. <a href="#robo18">Cards.Card/Is_Face</a></li>
+<li>1.2.4. <a href="#robo19">Cards.Card/Is_Pip</a></li>
+<li>1.2.5. <a href="#robo20">Cards.Card/Name</a></li>
+<li>1.2.6. <a href="#robo21">Cards.Card/Name_Symbol</a></li>
+<li>1.2.7. <a href="#robo22">Cards.Card/Symbol</a></li>
+<li>1.2.8. <a href="#robo23">Cards.Card/Symbol_Char</a></li>
+<li>1.2.9. <a href="#robo24">Cards.Card/Value</a></li>
+</ul>
+<li>1.3. <a href="#robo3">Cards/Cards.Card_List</a></li>
+<li>1.4. <a href="#robo4">Cards/Cards.Card_Symbol</a></li>
+<li>1.5. <a href="#robo5">Cards/Cards.Colors</a></li>
+<li>1.6. <a href="#robo6">Cards/Cards.Draw_From</a></li>
+<li>1.7. <a href="#robo7">Cards/Cards.Face</a></li>
+<li>1.8. <a href="#robo8">Cards/Cards.Pip</a></li>
+<li>1.9. <a href="#robo9">Cards/Cards.Rank</a></li>
+<ul>
+<li>1.9.1. <a href="#robo25">Cards.Rank/Abbr</a></li>
+</ul>
+<li>1.10. <a href="#robo10">Cards/Cards.Stack</a></li>
+<ul>
+<li>1.10.1. <a href="#robo13">Cards.Stack/Shuffle</a></li>
+<li>1.10.2. <a href="#robo26">Cards.Stack/Count</a></li>
+<li>1.10.3. <a href="#robo27">Cards.Stack/Create</a></li>
+<li>1.10.4. <a href="#robo28">Cards.Stack/Deal</a></li>
+<li>1.10.5. <a href="#robo29">Cards.Stack/Deal_All</a></li>
+<li>1.10.6. <a href="#robo30">Cards.Stack/Deck</a></li>
+<li>1.10.7. <a href="#robo31">Cards.Stack/Multiply</a></li>
+<li>1.10.8. <a href="#robo32">Cards.Stack/To_List</a></li>
+</ul>
+<li>1.11. <a href="#robo11">Cards/Cards.Suit</a></li>
+<ul>
+<li>1.11.1. <a href="#robo33">Cards.Suit/Abbr</a></li>
+<li>1.11.2. <a href="#robo34">Cards.Suit/Color</a></li>
+<li>1.11.3. <a href="#robo35">Cards.Suit/Symbol</a></li>
+<li>1.11.4. <a href="#robo36">Cards.Suit/Symbol_Char</a></li>
+</ul>
+<li>1.12. <a href="#robo12">Cards/Cards.Suit_Symbol</a></li>
+<li>1.13. <a href="#robo14">Cards/Cards.Blank_Card</a></li>
+<li>1.14. <a href="#robo15">Cards/Cards.Version</a></li>
+<li>1.15. <a href="#robo37">Cards/Cards.Joker_Symbol</a></li>
+<li>1.16. <a href="#robo38">Cards/Cards.Joker_Symbol_Char</a></li>
+</ul>
+</ul>
+<hr />
+<a name="Cards2fCards"></a>
+<a name="robo0"></a><h2>Cards/Cards [ Packages ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="./robo_packages.html#robo_top_of_doc">Packages</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    This package provides Suits, Rank, and <strong>Cards</strong>.
+    While this library has helper functions to print Joker and blank cards,
+    it does NOT support Joker cards.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source"><span class="keyword">package</span> <strong>Cards</strong> <span class="keyword">is</span>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eBlack5fWhite"></a>
+<a name="robo1"></a><h2>Cards/Cards.Black_White [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    Option for retrieving suit or symbol.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">type</span> Black_White <span class="keyword">is</span> <span class="sign">(</span>
+      Black<span class="sign">,</span> <span class="sign">-</span><span class="sign">-</span>  Default color e<span class="sign">.</span>g<span class="sign">.</span> <span class="squote">'â™¥'</span>
+      White  <span class="sign">-</span><span class="sign">-</span>  Alternate color e<span class="sign">.</span>g<span class="sign">.</span> <span class="squote">'â™¡'</span>
+   <span class="sign">)</span><span class="sign">;</span>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eCard"></a>
+<a name="robo2"></a><h2>Cards/Cards.Card [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    A single card holding a Suit and Rank item, such as an Ace of Spades.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">type</span> Card <span class="keyword">is</span> <span class="keyword">tagged</span> <span class="keyword">record</span>
+      Rank <span class="sign">:</span> <a href="#robo9">Cards.Rank</a><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  Rank <span class="keyword">of</span> the current card
+      Suit <span class="sign">:</span> <a href="#robo11">Cards.Suit</a><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  Suit <span class="keyword">of</span> the current card
+   <span class="keyword">end</span> <span class="keyword">record</span><span class="sign">;</span>
+</pre>
+<p class="item_name">METHODS</p>
+<pre>    * <strong>Cards.Card</strong>/<a href="#robo24">Value</a>
+    * <strong>Cards.Card</strong>/<a href="#robo18">Is_Face</a>
+    * <strong>Cards.Card</strong>/<a href="#robo17">Is_Ace</a>
+    * <strong>Cards.Card</strong>/<a href="#robo19">Is_Pip</a>
+    * <strong>Cards.Card</strong>/<a href="#robo20">Name</a>
+    * <strong>Cards.Card</strong>/<a href="#robo21">Name_Symbol</a>
+    * <strong>Cards.Card</strong>/<a href="#robo22">Symbol</a>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eCard5fList"></a>
+<a name="robo3"></a><h2>Cards/Cards.Card_List [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    A simple array of <a href="#robo2">Cards.Card</a>
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">type</span> Card_List <span class="keyword">is</span> <span class="keyword">array</span> <span class="sign">(</span>Positive <span class="keyword">range</span> <span class="sign">&lt;</span><span class="sign">&gt;</span><span class="sign">)</span> <span class="keyword">of</span> Card<span class="sign">;</span>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eCard5fSymbol"></a>
+<a name="robo4"></a><h2>Cards/Cards.Card_Symbol [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    Symbols restricted mostly to possible playing cards.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">subtype</span> Card_Symbol <span class="keyword">is</span> Wide_Wide_Character
+      <span class="keyword">with</span> Static_Predicate <span class="sign">=</span><span class="sign">&gt;</span> Card_Symbol <span class="keyword">in</span>
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0A1#) | --  ðŸ‚¡: Ace Of Spades
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0A2<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">¢</span><span class="sign">:</span> Two Of Spades
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0A3#) | --  ðŸ‚£: Three Of Spades
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0A4<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">¤</span><span class="sign">:</span> Four Of Spades
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0A5#) | --  ðŸ‚¥: Five Of Spades
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0A6<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">¦</span><span class="sign">:</span> Six Of Spades
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0A7#) | --  ðŸ‚§: Seven Of Spades
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0A8<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">¨</span><span class="sign">:</span> Eight Of Spades
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0A9#) | --  ðŸ‚©: Nine Of Spades
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0AA<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">ª</span><span class="sign">:</span> Ten Of Spades
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0AB#) | --  ðŸ‚«: Jack Of Spades
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0AD<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">­</span><span class="sign">:</span> Queen Of Spades
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0AE#) | --  ðŸ‚®: King Of Spades
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0B1<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">±</span><span class="sign">:</span> Ace Of Hearts
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0B2#) | --  ðŸ‚²: Two Of Hearts
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0B3<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">³</span><span class="sign">:</span> Three Of Hearts
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0B4#) | --  ðŸ‚´: Four Of Hearts
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0B5<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">µ</span><span class="sign">:</span> Five Of Hearts
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0B6#) | --  ðŸ‚¶: Six Of Hearts
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0B7<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">·</span><span class="sign">:</span> Seven Of Hearts
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0B8#) | --  ðŸ‚¸: Eight Of Hearts
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0B9<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">¹</span><span class="sign">:</span> Nine Of Hearts
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0BA#) | --  ðŸ‚º: Ten Of Hearts
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0BB<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">»</span><span class="sign">:</span> Jack Of Hearts
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0BD#) | --  ðŸ‚½: Queen Of Hearts
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0BE<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">‚</span><span class="sign">¾</span><span class="sign">:</span> King Of Hearts
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0C1#) | --  ðŸƒ: Ace Of Diamonds
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0C2<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">‚</span><span class="sign">:</span> Two Of Diamonds
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0C3#) | --  ðŸƒƒ: Three Of Diamonds
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0C4<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">„</span><span class="sign">:</span> Four Of Diamonds
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0C5#) | --  ðŸƒ…: Five Of Diamonds
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0C6<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">†</span><span class="sign">:</span> Six Of Diamonds
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0C7#) | --  ðŸƒ‡: Seven Of Diamonds
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0C8<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">ˆ</span><span class="sign">:</span> Eight Of Diamonds
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0C9#) | --  ðŸƒ‰: Nine Of Diamonds
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0CA<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">Š</span><span class="sign">:</span> Ten Of Diamonds
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0CB#) | --  ðŸƒ‹: Jack Of Diamonds
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0CD<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign"></span><span class="sign">:</span> Queen Of Diamonds
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0CE#) | --  ðŸƒŽ: King Of Diamonds
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0D1<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">‘</span><span class="sign">:</span> Ace Of Clubs
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0D2#) | --  ðŸƒ’: Two Of Clubs
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0D3<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">“</span><span class="sign">:</span> Three Of Clubs
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0D4#) | --  ðŸƒ”: Four Of Clubs
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0D5<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">•</span><span class="sign">:</span> Five Of Clubs
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0D6#) | --  ðŸƒ–: Six Of Clubs
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0D7<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">—</span><span class="sign">:</span> Seven Of Clubs
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0D8#) | --  ðŸƒ˜: Eight Of Clubs
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0D9<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">™</span><span class="sign">:</span> Nine Of Clubs
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0DA#) | --  ðŸƒš: Ten Of Clubs
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0DB<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">›</span><span class="sign">:</span> Jack Of Clubs
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0DD#) | --  ðŸƒ: Queen Of Clubs
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0DE<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">ž</span><span class="sign">:</span> King Of Clubs
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0CF#) | --  ðŸƒï¸Ž: Black Joker
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>0001_F0DF<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">ð</span><span class="sign">Ÿ</span><span class="sign">ƒ</span><span class="sign">Ÿ</span><span class="sign">:</span> White Joker
+         Wide_Wide_Character<span class="squote">'Val (16#0001_F0A0#);  --  ðŸ‚ : Blank card
+</pre>
+
+<hr />
+<a name="Cards2fCards2eColors"></a>
+<a name="robo5"></a><h2>Cards/Cards.Colors [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    The color that a certain suit is.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">type</span> Colors <span class="keyword">is</span> <span class="sign">(</span>
+      Black<span class="sign">,</span> <span class="sign">-</span><span class="sign">-</span>  <a href="#robo34">Color</a> <span class="keyword">of</span> suit <span class="keyword">is</span> black
+      Red    <span class="sign">-</span><span class="sign">-</span>  <a href="#robo34">Color</a> <span class="keyword">of</span> suit <span class="keyword">is</span> red
+   <span class="sign">)</span><span class="sign">;</span>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eDraw5fFrom"></a>
+<a name="robo6"></a><h2>Cards/Cards.Draw_From [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    Option for which part of the deck to draw a card from.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">type</span> Draw_From <span class="keyword">is</span> <span class="sign">(</span>Top<span class="sign">,</span> Bottom<span class="sign">,</span> Random<span class="sign">)</span><span class="sign">;</span>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eFace"></a>
+<a name="robo7"></a><h2>Cards/Cards.Face [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    Subset of <a href="#robo9">Cards.Rank</a> that only include the face cards.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">subtype</span> Face <span class="keyword">is</span> Rank <span class="keyword">range</span> Jack <span class="sign">.</span><span class="sign">.</span> King<span class="sign">;</span>
+</pre>
+<p class="item_name">DERIVED FROM</p>
+<pre>    * <a href="#robo9">Cards.Rank</a>
+</pre>
+
+<hr />
+<a name="Cards2fCards2ePip"></a>
+<a name="robo8"></a><h2>Cards/Cards.Pip [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    Subset of <a href="#robo9">Cards.Rank</a> that only include the face pip.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">subtype</span> Pip <span class="keyword">is</span> Rank
+      <span class="keyword">with</span> Static_Predicate <span class="sign">=</span><span class="sign">&gt;</span> Pip <span class="keyword">in</span> Two <span class="sign">.</span><span class="sign">.</span> Ten <span class="sign">|</span> Ace<span class="sign">;</span>
+</pre>
+<p class="item_name">DERIVED FROM</p>
+<pre>    * <a href="#robo9">Cards.Rank</a>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eRank"></a>
+<a name="robo9"></a><h2>Cards/Cards.Rank [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    The possible rank of each card, excluding the Joker (see note below).
+    Each rank's enumeration value is from 2 to 14 (With Ace = 14)
+    I recommended to retrieve the value via <a href="#robo0">Cards</a>/Card.<a href="#robo24">Value</a>
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">type</span> Rank <span class="keyword">is</span> <span class="sign">(</span>Two<span class="sign">,</span> Three<span class="sign">,</span> Four<span class="sign">,</span> Five<span class="sign">,</span> Six<span class="sign">,</span> Seven<span class="sign">,</span> Eight<span class="sign">,</span>
+                 Nine<span class="sign">,</span> Ten<span class="sign">,</span> Jack<span class="sign">,</span> Queen<span class="sign">,</span> King<span class="sign">,</span> Ace<span class="sign">)</span><span class="sign">;</span>
+   <span class="keyword">for</span> Rank <span class="keyword">use</span> <span class="sign">(</span>2<span class="sign">,</span> 3<span class="sign">,</span> 4<span class="sign">,</span> 5<span class="sign">,</span> 6<span class="sign">,</span> 7<span class="sign">,</span> 8<span class="sign">,</span> 9<span class="sign">,</span> 10<span class="sign">,</span> 11<span class="sign">,</span> 12<span class="sign">,</span> 13<span class="sign">,</span> 14<span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">DERIVED BY</p>
+<pre>    * <a href="#robo7">Cards.Face</a>
+    * <a href="#robo8">Cards.Pip</a>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eStack"></a>
+<a name="robo10"></a><h2>Cards/Cards.Stack [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    A vector of <a href="#robo2">Cards.Card</a> that can be shuffled or dealt from.
+    It's derived from Ada.Containers.Vectors and thus you can
+    utilize any vector-related functions for this datatype.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">package</span> Card_Vectors <span class="keyword">is</span> <span class="keyword">new</span>
+     Ada<span class="sign">.</span>Containers<span class="sign">.</span>Vectors
+       <span class="sign">(</span>Index_Type   <span class="sign">=</span><span class="sign">&gt;</span> Positive<span class="sign">,</span>
+        Element_Type <span class="sign">=</span><span class="sign">&gt;</span> Card<span class="sign">)</span><span class="sign">;</span>
+   <span class="keyword">type</span> Stack <span class="keyword">is</span> <span class="keyword">new</span> Card_Vectors<span class="sign">.</span>Vector <span class="keyword">with</span> <span class="keyword">null</span> <span class="keyword">record</span><span class="sign">;</span>
+</pre>
+<p class="item_name">NOTES</p>
+<pre>    The "top" of the stack is implimented to be Stack.Last_Element and
+    the bottom of the stack is implimented as Stack.First_Element.
+</pre>
+<p class="item_name">METHODS</p>
+<pre>    * <strong>Cards.Stack</strong>/<a href="#robo26">Count</a>
+    * <strong>Cards.Stack</strong>/<a href="#robo32">To_List</a>
+    * <strong>Cards.Stack</strong>/<a href="#robo13">Shuffle</a>
+    * <strong>Cards.Stack</strong>/<a href="#robo28">Deal</a>
+    * <strong>Cards.Stack</strong>/<a href="#robo29">Deal_All</a>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eSuit"></a>
+<a name="robo11"></a><h2>Cards/Cards.Suit [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    The four suits of a playing card.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">type</span> Suit <span class="keyword">is</span> <span class="sign">(</span>Hearts<span class="sign">,</span> Clubs<span class="sign">,</span> Diamonds<span class="sign">,</span> Spades<span class="sign">)</span><span class="sign">;</span>
+</pre>
+
+<hr />
+<a name="Cards2fCards2eSuit5fSymbol"></a>
+<a name="robo12"></a><h2>Cards/Cards.Suit_Symbol [ Types ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_types.html#robo_top_of_doc">Types</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    Symbols restricted to possible suit symbols.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">subtype</span> Suit_Symbol <span class="keyword">is</span> Wide_Wide_Character
+      <span class="keyword">with</span> Static_Predicate <span class="sign">=</span><span class="sign">&gt;</span> Suit_Symbol <span class="keyword">in</span>
+         Wide_Wide_Character<span class="squote">'Val (16#2665#) | --  â™¥
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>2663<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">â</span><span class="sign">™</span><span class="sign">£</span>
+         Wide_Wide_Character<span class="squote">'Val (16#2666#) | --  â™¦
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>2660<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">â</span><span class="sign">™</span><span class="sign"> </span>
+         Wide_Wide_Character<span class="squote">'Val (16#2661#) | --  â™¡
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>2667<span class="sign">#</span><span class="sign">)</span> <span class="sign">|</span> <span class="sign">-</span><span class="sign">-</span>  <span class="sign">â</span><span class="sign">™</span><span class="sign">§</span>
+         Wide_Wide_Character<span class="squote">'Val (16#2662#) | --  â™¢
+         Wide_Wide_Character'</span>Val <span class="sign">(</span>16<span class="sign">#</span>2664<span class="sign">#</span><span class="sign">)</span><span class="sign">;</span>  <span class="sign">-</span><span class="sign">-</span>  <span class="sign">â</span><span class="sign">™</span><span class="sign">¤</span>
+</pre>
+
+<hr />
+<a name="Cards2eStack2fShuffle"></a>
+<a name="robo13"></a><h2>Cards.Stack/Shuffle [ Methods ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_methods.html#robo_top_of_doc">Methods</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">procedure</span> <strong>Shuffle</strong> <span class="sign">(</span>Self <span class="sign">:</span> <span class="keyword">in</span> <span class="keyword">out</span> Stack<span class="sign">;</span> Rounds <span class="sign">:</span> Positive <span class="sign">:</span><span class="sign">=</span> 1<span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self   -- The stack of cards to shuffle
+    Rounds -- How many times should it be shuffled?  Default is 1 pass.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
+   <span class="sign">-</span><span class="sign">-</span>       CD <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
+   <span class="sign">-</span><span class="sign">-</span>       CD<span class="sign">.</span><strong>Shuffle</strong><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  This will contain 
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo10">Cards.Stack</a>/<a href="#robo30">Deck</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    <strong>Shuffle</strong> a stack of cards with the provided Rounds.  Each round
+    is a single pass, swapping the cards between random slots.
+    Default is a single pass.
+</pre>
+
+<hr />
+<a name="Cards2fCards2eBlank5fCard"></a>
+<a name="robo14"></a><h2>Cards/Cards.Blank_Card [ Constants ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_constants.html#robo_top_of_doc">Constants</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    A card symbol with no face or symbol: `ðŸ‚ `
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   Blank_Card <span class="sign">:</span> <span class="keyword">constant</span> Card_Symbol <span class="sign">:</span><span class="sign">=</span> Wide_Wide_Character<span class="squote">'Val (16#1F0A0#);
+</pre>
+
+<hr />
+<a name="Cards2fCards2eVersion"></a>
+<a name="robo15"></a><h2>Cards/Cards.Version [ Constants ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_constants.html#robo_top_of_doc">Constants</a> ]</p>
+<p class="item_name">DESCRIPTION</p>
+<pre>    Version of the library itself.
+</pre>
+<p class="item_name">SOURCE</p>
+<pre class="source">   Version <span class="sign">:</span> <span class="keyword">constant</span> String <span class="sign">:</span><span class="sign">=</span> <span class="quote">"1.0.0-rc"</span><span class="sign">;</span>
+</pre>
+
+<hr />
+<a name="Cards2eCard2fAs5fBox"></a>
+<a name="robo16"></a><h2>Cards.Card/As_Box [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>As_Box</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">;</span>
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black <span class="sign">-</span><span class="sign">-</span> character color<span class="sign">;</span> default<span class="sign">:</span> Black
+   <span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> e<span class="sign">.</span>g<span class="sign">.</span> <span class="sign">|</span>4<span class="sign">â</span><span class="sign">™</span><span class="sign">¥</span><span class="sign">|</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+    Symbol_Color - Which color of character
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Wide_Wide_String containing rank and suit symbmol between pipes
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
+   <span class="sign">-</span><span class="sign">-</span>       A_S <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ace<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       T_H <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ten<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Hearts<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|Aâ™ |"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>As_Box</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|Aâ™¤|"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>As_Box</strong> <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|10â™¥|"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>T_H<span class="sign">.</span><strong>As_Box</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|10â™¡|"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>T_H<span class="sign">.</span><strong>As_Box</strong> <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo2">Cards.Card</a>/<a href="#robo20">Name</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo36">Symbol_Char</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo22">Symbol</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo21">Name_Symbol</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Returns the short name of a card with pipes on each side.
+    It's essentially just wrapping <a href="#robo21">Name_Symbol</a> in "|"
+</pre>
+
+<hr />
+<a name="Cards2eCard2fIs5fAce"></a>
+<a name="robo17"></a><h2>Cards.Card/Is_Ace [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Is_Ace</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">)</span> <span class="keyword">return</span> Boolean<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    True if card is an Ace. Otherwise, False.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">if</span> My_Card<span class="sign">.</span><strong>Is_Ace</strong> <span class="keyword">then</span>
+   <span class="sign">-</span><span class="sign">-</span>      Put_Line <span class="sign">(</span><span class="quote">"It is an Ace."</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span> <span class="keyword">if</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Determine whether the card is an Ace or not, such as an Ace of Spades.
+</pre>
+
+<hr />
+<a name="Cards2eCard2fIs5fFace"></a>
+<a name="robo18"></a><h2>Cards.Card/Is_Face [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Is_Face</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">)</span> <span class="keyword">return</span> Boolean<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    True if card is a Jack, Queen, or King. Otherwise, False.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">if</span> My_Card<span class="sign">.</span><strong>Is_Face</strong> <span class="keyword">then</span>
+   <span class="sign">-</span><span class="sign">-</span>      Put_Line <span class="sign">(</span><span class="quote">"It is a face card."</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span> <span class="keyword">if</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Determine whether the card is a face card, such as "King of Hearts"
+</pre>
+
+<hr />
+<a name="Cards2eCard2fIs5fPip"></a>
+<a name="robo19"></a><h2>Cards.Card/Is_Pip [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Is_Pip</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">)</span> <span class="keyword">return</span> Boolean<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    True if card is an Ace, or ranked Two through Ten. Otherwise, False.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">if</span> My_Card<span class="sign">.</span><strong>Is_Pip</strong> <span class="keyword">then</span>
+   <span class="sign">-</span><span class="sign">-</span>      Put_Line <span class="sign">(</span><span class="quote">"It is a pip card."</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span> <span class="keyword">if</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Determine whether the card is a pip card (Ace through 10).
+</pre>
+
+<hr />
+<a name="Cards2eCard2fName"></a>
+<a name="robo20"></a><h2>Cards.Card/Name [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Name</strong>
+      <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">;</span>
+       Long_Format   <span class="sign">:</span> Boolean <span class="sign">:</span><span class="sign">=</span> False <span class="sign">-</span><span class="sign">-</span> Short <span class="quote">"AS"</span> <span class="keyword">or</span> long <span class="quote">"Ace of Spades"</span>
+      <span class="sign">)</span> <span class="keyword">return</span> String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  <strong>Name</strong> <span class="keyword">of</span> Card<span class="sign">.</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+    Long_Format - Whether to print the full name.  Default is "False"
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    A string containing the card's name.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
+   <span class="sign">-</span><span class="sign">-</span>       A_S <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ace<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       T_H <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ten<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Hearts<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"AS
+   --       Ada.Text_IO.Put_Line (A_S.<strong>Name</strong>);
+   --       --  This will print "</span>Ace <span class="keyword">of</span> Spades<span class="quote">"
+   --       Ada.Text_IO.Put_Line (A_S.<strong>Name</strong>, True);
+   --       --  This will print "</span>10H<span class="quote">"
+   --       Ada.Text_IO.Put_Line (T_H.<strong>Name</strong>);
+   --       --  This will print "</span>Ten <span class="keyword">of</span> Hearts<span class="quote">"
+   --       Ada.Text_IO.Put_Line (T_H.<strong>Name</strong>, True); --  "</span>Ten <span class="keyword">of</span> Hearts<span class="quote">"
+   --    end;
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo2">Cards.Card</a>/<a href="#robo21">Name_Symbol</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo36">Symbol_Char</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo22">Symbol</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Returns the name of the card.
+</pre>
+
+<hr />
+<a name="Cards2eCard2fName5fSymbol"></a>
+<a name="robo21"></a><h2>Cards.Card/Name_Symbol [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Name_Symbol</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">;</span>
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black <span class="sign">-</span><span class="sign">-</span> character color<span class="sign">;</span> default<span class="sign">:</span> Black
+   <span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> e<span class="sign">.</span>g<span class="sign">.</span> 4<span class="sign">â</span><span class="sign">™</span><span class="sign">¥</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+    Symbol_Color - Which color of character
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Wide_Wide_String containing rank and suit symbmol
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
+   <span class="sign">-</span><span class="sign">-</span>       A_S <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ace<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       T_H <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ten<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Hearts<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"Aâ™ "</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>Name_Symbol</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"Aâ™¤"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>Name_Symbol</strong> <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"10â™¥"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>T_H<span class="sign">.</span><strong>Name_Symbol</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"10â™¡"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>T_H<span class="sign">.</span><strong>Name_Symbol</strong> <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo2">Cards.Card</a>/<a href="#robo20">Name</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo22">Symbol</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo36">Symbol_Char</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo16">As_Box</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Returns the short name of a card using the suit symbol
+</pre>
+
+<hr />
+<a name="Cards2eCard2fSymbol"></a>
+<a name="robo22"></a><h2>Cards.Card/Symbol [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Symbol</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> returns eg<span class="sign">.</span> <span class="quote">"ðŸ‚¡"</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Wide_Wide_String -- unicode string containing symbol of card
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
+   <span class="sign">-</span><span class="sign">-</span>       A_S <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ace<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       T_H <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ten<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Hearts<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸ‚¡"</span><span class="sign">,</span> aka U<span class="sign">+</span>1F0A1
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>Symbol</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸ‚º"</span><span class="sign">,</span> aka U<span class="sign">+</span>1F0BA
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>T_H<span class="sign">.</span><strong>Symbol</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo2">Cards.Card</a>/<a href="#robo20">Name</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo21">Name_Symbol</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo36">Symbol_Char</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Returns the symbol of the card.
+</pre>
+
+<hr />
+<a name="Cards2eCard2fSymbol5fChar"></a>
+<a name="robo23"></a><h2>Cards.Card/Symbol_Char [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Symbol_Char</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">)</span> <span class="keyword">return</span> Card_Symbol<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    <a href="#robo4">Cards.Card_Symbol</a> - the unicode symbol of the card.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
+   <span class="sign">-</span><span class="sign">-</span>       A_S <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ace<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       T_H <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ten<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Hearts<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸ‚¡"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span>A_S<span class="sign">.</span><strong>Symbol_Char</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸ‚º"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span>T_H<span class="sign">.</span><strong>Symbol_Char</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo2">Cards.Card</a>/<a href="#robo20">Name</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo21">Name_Symbol</a>
+    * <a href="#robo2">Cards.Card</a>/<a href="#robo22">Symbol</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the unicode symbol for a given card.
+</pre>
+
+<hr />
+<a name="Cards2eCard2fValue"></a>
+<a name="robo24"></a><h2>Cards.Card/Value [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Value</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">;</span> Ace_Value <span class="sign">:</span> Positive <span class="sign">:</span><span class="sign">=</span> 1<span class="sign">)</span> <span class="keyword">return</span> Positive<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The card
+    Ace_Value - The value of an Ace.  Default is 1, but may be redefined.
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    * Ace is either 1 or the value of "Ace_Value"
+    * All oher pip cards are valued by their pip rank, e.g. "Two" is 2
+    * Face <a href="#robo0">Cards</a> are 10.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    A_S <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ace<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    K_S <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> King<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    T_H <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ten<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Hearts<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    F_D <span class="sign">:</span> <span class="keyword">constant</span> Card <span class="sign">:</span><span class="sign">=</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Five<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Diamonds<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ace_1 <span class="sign">:</span> <span class="keyword">constant</span> Positive <span class="sign">:</span><span class="sign">=</span> A_S<span class="sign">.</span><strong>Value</strong><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  will hold 1
+   <span class="sign">-</span><span class="sign">-</span>    Ace_10 <span class="sign">:</span> <span class="keyword">constant</span> Positive <span class="sign">:</span><span class="sign">=</span> A_S<span class="sign">.</span><strong>Value</strong> <span class="sign">(</span>10<span class="sign">)</span><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  will hold 10
+   <span class="sign">-</span><span class="sign">-</span>    Five_Value <span class="sign">:</span> <span class="keyword">constant</span> Positive <span class="sign">:</span><span class="sign">=</span> F_D<span class="sign">.</span><strong>Value</strong><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> Will hold 5
+   <span class="sign">-</span><span class="sign">-</span>    Five_Value <span class="sign">:</span> <span class="keyword">constant</span> Positive <span class="sign">:</span><span class="sign">=</span> F_D<span class="sign">.</span><strong>Value</strong> <span class="sign">(</span>10<span class="sign">)</span><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> Will still hold 5
+   <span class="sign">-</span><span class="sign">-</span>    King_Value <span class="sign">:</span> <span class="keyword">constant</span> Positive <span class="sign">:</span><span class="sign">=</span> K_S<span class="sign">.</span><strong>Value</strong><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  will hold 10
+   <span class="sign">-</span><span class="sign">-</span>    Ten_Value <span class="sign">:</span> <span class="keyword">constant</span> Positive <span class="sign">:</span><span class="sign">=</span> T_H<span class="sign">.</span><strong>Value</strong><span class="sign">;</span>  <span class="sign">-</span><span class="sign">-</span>  will hold 10
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Returns the numerical value of the card.
+</pre>
+
+<hr />
+<a name="Cards2eRank2fAbbr"></a>
+<a name="robo25"></a><h2>Cards.Rank/Abbr [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo9">Cards.Rank</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Abbr</strong> <span class="sign">(</span>Item <span class="sign">:</span> Rank<span class="sign">)</span> <span class="keyword">return</span> String<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Item - The suit to retrieve the abbreviation for.
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    String containing the shorthand name for the suit.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"K"</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Abbr</strong> <span class="sign">(</span>King<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"10"</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Abbr</strong> <span class="sign">(</span>Ten<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the abbreviation for a given rank.
+</pre>
+
+<hr />
+<a name="Cards2eStack2fCount"></a>
+<a name="robo26"></a><h2>Cards.Stack/Count [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Count</strong> <span class="sign">(</span>Self <span class="sign">:</span> Stack<span class="sign">;</span>
+                   Which_Suit <span class="sign">:</span> Suit<span class="sign">;</span>
+                   Which_Rank <span class="sign">:</span> Rank<span class="sign">)</span>
+      <span class="keyword">return</span> Natural<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The cards
+    Which_Suit - The card's suit to count
+    Which_Rank - The card's rank to count
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Natural -- The numeber of times that card exists in the stack
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    CD <span class="sign">:</span> <span class="keyword">constant</span> Stack <span class="sign">:</span><span class="sign">=</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  C contains <span class="quote">"1"</span>
+   <span class="sign">-</span><span class="sign">-</span>    C <span class="sign">:</span> <span class="keyword">constant</span> Natural <span class="sign">:</span><span class="sign">=</span> CD<span class="sign">.</span><strong>Count</strong> <span class="sign">(</span>Spades<span class="sign">,</span> Ace<span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Counts how many instances of a card is in the Stack
+</pre>
+
+<hr />
+<a name="Cards2eStack2fCreate"></a>
+<a name="robo27"></a><h2>Cards.Stack/Create [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Create</strong> <span class="sign">(</span>From <span class="sign">:</span> Card_List<span class="sign">)</span> <span class="keyword">return</span> Stack<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    From   -- Array of cards to create the stack from
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Stack containing cards in array "From"
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  create a stack <span class="keyword">of</span> cards <span class="keyword">with</span> an Ace<span class="sign">,</span> King<span class="sign">,</span> <span class="keyword">and</span> Jack <span class="keyword">of</span> spades
+   <span class="sign">-</span><span class="sign">-</span>    CD <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> <strong>Create</strong> <span class="sign">(</span><span class="sign">[</span> <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Ace<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">,</span>
+   <span class="sign">-</span><span class="sign">-</span>                            <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> King<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">,</span>
+   <span class="sign">-</span><span class="sign">-</span>                            <span class="sign">(</span>Rank <span class="sign">=</span><span class="sign">&gt;</span> Jack<span class="sign">,</span> Suit <span class="sign">=</span><span class="sign">&gt;</span> Spades<span class="sign">)</span><span class="sign">]</span><span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    <strong>Create</strong> a deck of cards based on a list of existing cards
+</pre>
+
+<hr />
+<a name="Cards2eStack2fDeal"></a>
+<a name="robo28"></a><h2>Cards.Stack/Deal [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Deal</strong> <span class="sign">(</span>Self <span class="sign">:</span> <span class="keyword">in</span> <span class="keyword">out</span> Stack<span class="sign">;</span>
+                  Amount <span class="sign">:</span> Natural <span class="sign">:</span><span class="sign">=</span> 1<span class="sign">;</span>
+                  From <span class="sign">:</span> Draw_From  <span class="sign">:</span><span class="sign">=</span> Top<span class="sign">)</span> <span class="keyword">return</span> Stack<span class="sign">;</span>
+   <span class="keyword">function</span> <strong>Deal</strong> <span class="sign">(</span>Self <span class="sign">:</span> <span class="keyword">in</span> <span class="keyword">out</span> Stack<span class="sign">;</span>
+                  Amount <span class="sign">:</span> Natural <span class="sign">:</span><span class="sign">=</span> 1<span class="sign">;</span>
+                  From <span class="sign">:</span> Draw_From  <span class="sign">:</span><span class="sign">=</span> Top<span class="sign">)</span> <span class="keyword">return</span> Card_List<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self   -- The stack of cards to deal from
+    Amount -- How many cards should be delt from the deck?
+    From   -- <strong>Deal</strong> from the Top, Bottom, or a Random position?
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Stack or Card_List -- stack or list of cards containing dealt cards. 
+  NOTE
+    Since Stack is type Ada.Containers.Vector, you can append the results
+    of Stack.<strong>Deal</strong> as a parameter to Stack.Append_Vector.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
+   <span class="sign">-</span><span class="sign">-</span>       CD1 <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  Move 5 random cards from CD1 to CD2
+   <span class="sign">-</span><span class="sign">-</span>       CD2 <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> CD1<span class="sign">.</span><strong>Deal</strong> <span class="sign">(</span>5<span class="sign">,</span> Random<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  Append 10 more cards to CD2
+   <span class="sign">-</span><span class="sign">-</span>       CD2<span class="sign">.</span>Append_Vector <span class="sign">(</span>CD1<span class="sign">.</span><strong>Deal</strong> <span class="sign">(</span>10<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo10">Cards.Stack</a>/<a href="#robo29">Deal_All</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    <strong>Deal</strong> X amount of cards from a stack of cards.  If the stack contains
+       less then the amount provided, then all of the cards will be dealt.
+</pre>
+
+<hr />
+<a name="Cards2eStack2fDeal5fAll"></a>
+<a name="robo29"></a><h2>Cards.Stack/Deal_All [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Deal_All</strong> <span class="sign">(</span>Self <span class="sign">:</span> <span class="keyword">in</span> <span class="keyword">out</span> Stack<span class="sign">;</span>
+                      From <span class="sign">:</span> Draw_From <span class="sign">:</span><span class="sign">=</span> Top<span class="sign">)</span> <span class="keyword">return</span> Stack<span class="sign">;</span>
+   <span class="keyword">function</span> <strong>Deal_All</strong> <span class="sign">(</span>Self <span class="sign">:</span> <span class="keyword">in</span> <span class="keyword">out</span> Stack<span class="sign">;</span>
+                      From <span class="sign">:</span> Draw_From <span class="sign">:</span><span class="sign">=</span> Top<span class="sign">)</span> <span class="keyword">return</span> Card_List<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self   -- The stack of cards to deal from
+    From   -- <a href="#robo28">Deal</a> from the Top, Bottom, or a Random position?
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Stack or Card_List -- The now-spent deck.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source"><span class="sign">-</span><span class="sign">-</span>       CD1 <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+<span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  Move <span class="keyword">all</span> cards to CD1 to CD2 <span class="keyword">in</span> random order<span class="sign">.</span>
+<span class="sign">-</span><span class="sign">-</span>       CD2 <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> CD1<span class="sign">.</span><strong>Deal_All</strong> <span class="sign">(</span>From <span class="sign">=</span><span class="sign">&gt;</span> Random<span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo10">Cards.Stack</a>/<a href="#robo28">Deal</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    <a href="#robo28">Deal</a> all cards from a stack of cards.
+    Equivalent to "<a href="#robo28">Deal</a> (Self, Natural (Self.Length), From)"
+</pre>
+
+<hr />
+<a name="Cards2eStack2fDeck"></a>
+<a name="robo30"></a><h2>Cards.Stack/Deck [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Deck</strong> <span class="keyword">return</span> Stack<span class="sign">;</span>
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Stack containing all 52-cards.
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  create a stack <span class="keyword">of</span> the standard 52 deck
+   <span class="sign">-</span><span class="sign">-</span>    CD <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> <strong>Deck</strong><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    <a href="#robo27">Create</a> a standard 52-card deck.
+</pre>
+
+<hr />
+<a name="Cards2eStack2fMultiply"></a>
+<a name="robo31"></a><h2>Cards.Stack/Multiply [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <span class="quote">"*"</span> <span class="sign">(</span>Left <span class="sign">:</span> Natural<span class="sign">;</span> Right <span class="sign">:</span> Stack<span class="sign">)</span> <span class="keyword">return</span> Stack<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Right   -- The stack of cards to multiply
+    Left    -- The amount of times the stack should bu multiplied
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Stack containing the original stack duplicated "Left" times
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  create a stack <span class="keyword">of</span> 3 decks
+   <span class="sign">-</span><span class="sign">-</span>    CD1 <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> 3 <span class="sign">*</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    <strong>Multiply</strong> a stack
+</pre>
+
+<hr />
+<a name="Cards2eStack2fTo5fList"></a>
+<a name="robo32"></a><h2>Cards.Stack/To_List [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>To_List</strong> <span class="sign">(</span>Self <span class="sign">:</span> Stack<span class="sign">)</span> <span class="keyword">return</span> Card_List<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Self - The cards
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Card_List -- Array of cards containing the current vector of cards
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>       CD <span class="sign">:</span> <span class="keyword">constant</span> Stack <span class="sign">:</span><span class="sign">=</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       CL <span class="sign">:</span> <span class="keyword">constant</span> Card_List <span class="sign">:</span><span class="sign">=</span> CD<span class="sign">.</span><strong>To_List</strong><span class="sign">;</span>
+</pre>
+<p class="item_name">SEE ALSO</p>
+<pre>    * <a href="#robo10">Cards.Stack</a>/<a href="#robo30">Deck</a>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Converts a card vector to card array
+</pre>
+
+<hr />
+<a name="Cards2eSuit2fAbbr"></a>
+<a name="robo33"></a><h2>Cards.Suit/Abbr [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo11">Cards.Suit</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Abbr</strong> <span class="sign">(</span>Item <span class="sign">:</span> Suit<span class="sign">)</span> <span class="keyword">return</span> String<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Item - The suit to retrieve the abbreviation for.
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    String containing "H", "C", "D", or "S"
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"H"</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Abbr</strong> <span class="sign">(</span>Hearts<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"S"</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Abbr</strong> <span class="sign">(</span>Spades<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the abbreviation for a given suit.
+</pre>
+
+<hr />
+<a name="Cards2eSuit2fColor"></a>
+<a name="robo34"></a><h2>Cards.Suit/Color [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo11">Cards.Suit</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Color</strong> <span class="sign">(</span>
+         Item <span class="sign">:</span> Suit <span class="sign">-</span><span class="sign">-</span> The suit to retrieve the color from
+      <span class="sign">)</span> <span class="keyword">return</span> Colors<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Item - The suit to retrieve the color from
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    <a href="#robo5">Cards.Colors</a> - <strong>Color</strong> of the suit
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    Assert <span class="sign">(</span><strong>Color</strong> <span class="sign">(</span>Hearts<span class="sign">)</span> <span class="sign">=</span> Red<span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the color of a given suit
+</pre>
+
+<hr />
+<a name="Cards2eSuit2fSymbol"></a>
+<a name="robo35"></a><h2>Cards.Suit/Symbol [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo11">Cards.Suit</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Symbol</strong>
+      <span class="sign">(</span>Item <span class="sign">:</span> Suit<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  The suit to retrieve the color from
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black <span class="sign">-</span><span class="sign">-</span>  character color<span class="sign">;</span> default<span class="sign">:</span> Black
+      <span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> Wide_Wide_String <span class="keyword">of</span> suit unicode symbol
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Item - The suit to retrieve the color from
+    Symbol_Color - color of character, default is black
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    Wide_Wide_String - containing unicode symbol of suit
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"â™¥"</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Symbol</strong> <span class="sign">(</span>Hearts<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"â™¡"</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Symbol</strong> <span class="sign">(</span>Hearts<span class="sign">,</span> White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the unicode symbol as a string for a given suit.
+</pre>
+
+<hr />
+<a name="Cards2eSuit2fSymbol5fChar"></a>
+<a name="robo36"></a><h2>Cards.Suit/Symbol_Char [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo11">Cards.Suit</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> <strong>Symbol_Char</strong>
+      <span class="sign">(</span>Item <span class="sign">:</span> Suit<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  The suit to retrieve the symbol from
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black <span class="sign">-</span><span class="sign">-</span>  character color<span class="sign">;</span> default<span class="sign">:</span> Black
+      <span class="sign">)</span> <span class="keyword">return</span> Suit_Symbol<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Item - The suit to retrieve the symbol from
+    Symbol_Color - Default color of character
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    <a href="#robo12">Cards.Suit_Symbol</a> - Unicode symbol of suit
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"â™¥"</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Symbol_Char</strong> <span class="sign">(</span>Hearts<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"â™¡"</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span><strong>Symbol_Char</strong> <span class="sign">(</span>Hearts<span class="sign">,</span> White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the unicode symbol for a given suit.
+</pre>
+
+<hr />
+<a name="Cards2fCards2eJoker5fSymbol"></a>
+<a name="robo37"></a><h2>Cards/Cards.Joker_Symbol [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> Joker_Symbol
+      <span class="sign">(</span>
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">-</span><span class="sign">-</span>  character color<span class="sign">;</span> default<span class="sign">:</span> Black
+      <span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span>
+   <span class="keyword">function</span> Joker_Symbol <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Symbol_Color - Default color of character, default is black
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    <a href="#robo4">Cards.Card_Symbol</a> - Unicode symbol of joker
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸƒï¸Ž"</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span>Joker_Symbol<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸƒŸ"</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span>Joker_Symbol <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the unicode symbol for a joker, as a string.
+</pre>
+
+<hr />
+<a name="Cards2fCards2eJoker5fSymbol5fChar"></a>
+<a name="robo38"></a><h2>Cards/Cards.Joker_Symbol_Char [ Subprograms ]</h2>
+
+<p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo0">Cards</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
+<p class="item_name">SOURCE</p>
+<pre class="source">   <span class="keyword">function</span> Joker_Symbol_Char
+      <span class="sign">(</span>
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">-</span><span class="sign">-</span>  character color<span class="sign">;</span> default<span class="sign">:</span> Black
+      <span class="sign">)</span> <span class="keyword">return</span> Card_Symbol<span class="sign">;</span>
+   <span class="keyword">function</span> Joker_Symbol_Char <span class="keyword">return</span> Card_Symbol<span class="sign">;</span>
+</pre>
+<p class="item_name">PARAMETERS</p>
+<pre>    Symbol_Color - Default color of character, default is black
+</pre>
+<p class="item_name">RETURN VALUE</p>
+<pre>    <a href="#robo4">Cards.Card_Symbol</a> - Unicode symbol of joker
+</pre>
+<p class="item_name">EXAMPLE</p>
+<pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸƒï¸Ž"</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span>Joker_Symbol_Char<span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"ðŸƒŸ"</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>    Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put <span class="sign">(</span>Joker_Symbol_Char <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+</pre>
+<p class="item_name">FUNCTION</p>
+<pre>    Retrieve the unicode symbol for a joker.
+</pre>
+
+</div> <!-- content -->
+<div id="footer">
+<p>Generated from ./src/cards.ads with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.44 on 2025-02-09 22:53:26</p>
+</div> <!-- footer -->
+</body>
+</html>

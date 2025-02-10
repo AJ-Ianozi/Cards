@@ -1,0 +1,18 @@
+name = "examples"
+description = "Examples for card library"
+version = "0.1.0-dev"
+
+authors = ["AJ Ianozi"]
+maintainers = ["AJ Ianozi <aj@ianozi.com>"]
+maintainers-logins = ["aj-ianozi"]
+licenses = "MIT"
+website = ""
+tags = []
+
+executables = ["blackjack"]
+
+[[depends-on]]
+cards = "*"
+
+[[pins]]
+cards = { path = "../"  }
