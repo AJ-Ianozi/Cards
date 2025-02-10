@@ -18,6 +18,8 @@ This library has no dependencies, so you can also just copy `cards.ads` and `car
 
 ## Usage
 
+You can read the [API Documentation Online](https://aj-ianozi.github.io/Cards/toc_index.html) which has been generated with [ROBODoc](https://github.com/gumpu/ROBODoc).  A copy of this is found in the `docs` folder, as well as `cards.ads` itself.  I recommended reading through that.
+
 This library implements a tagged record named `Card`.  Each card has a `Rank` and a `Suit`, with various functions to derive the value and color, as well as providing the ability to print.
 
 There is also an array of type card (`Card_List`) and a `Stack` of cards (derived from `Ada.Containers.Vectors.Vector`).
@@ -48,8 +50,6 @@ Discard_Tray.Append_Vector (Shoe.Deal);
 ```
 
 `.Append_Vector` is needed because `Deal` returns a whole vector (of type `Stack`) instead of specific cards.
-
-Full API documentation can be found in the `docs` folder, as well as `cards.ads` itself.  I recommended reading through that.
 
 ## Examples
 
