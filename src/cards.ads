@@ -18,7 +18,7 @@ package Cards is
 
    --  ****d* Cards/Cards.Version
    --  SOURCE
-   Version : constant String := "1.0.0-rc";
+   Version : constant String := "1.0.0";
    --  DESCRIPTION
    --    Version of the library itself.
    --  ****
