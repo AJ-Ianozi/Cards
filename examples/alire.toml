@@ -9,7 +9,7 @@ licenses = "MIT"
 website = ""
 tags = []
 
-executables = ["blackjack"]
+executables = ["blackjack", "klondike"]
 
 [[depends-on]]
 cards = "*"
