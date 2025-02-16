@@ -358,6 +358,7 @@
 <p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo10">Cards.Stack</a> ] [ <a href="./robo_methods.html#robo_top_of_doc">Methods</a> ]</p>
 <p class="item_name">SOURCE</p>
 <pre class="source">   <span class="keyword">procedure</span> <strong>Shuffle</strong> <span class="sign">(</span>Self <span class="sign">:</span> <span class="keyword">in</span> <span class="keyword">out</span> Stack<span class="sign">;</span> Rounds <span class="sign">:</span> Positive <span class="sign">:</span><span class="sign">=</span> 1<span class="sign">)</span><span class="sign">;</span>
+   <span class="keyword">function</span> <strong>Shuffle</strong> <span class="sign">(</span>Self <span class="sign">:</span> Stack<span class="sign">;</span> Rounds <span class="sign">:</span> Positive <span class="sign">:</span><span class="sign">=</span> 1<span class="sign">)</span> <span class="keyword">return</span> Stack<span class="sign">;</span>
 </pre>
 <p class="item_name">PARAMETERS</p>
 <pre>    Self   -- The stack of cards to shuffle
@@ -365,9 +366,11 @@
 </pre>
 <p class="item_name">EXAMPLE</p>
 <pre class="source">   <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">declare</span>
-   <span class="sign">-</span><span class="sign">-</span>       CD <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       CD1 <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> <a href="#robo30">Deck</a><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will contain a shuffled deck
+   <span class="sign">-</span><span class="sign">-</span>       CD2 <span class="sign">:</span> Stack <span class="sign">:</span><span class="sign">=</span> CD1<span class="sign">.</span><strong>Shuffle</strong><span class="sign">;</span>
    <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
-   <span class="sign">-</span><span class="sign">-</span>       CD<span class="sign">.</span><strong>Shuffle</strong><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  This will contain 
+   <span class="sign">-</span><span class="sign">-</span>       CD1<span class="sign">.</span><strong>Shuffle</strong><span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span>  This will contain a shuffled deck
    <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">end</span><span class="sign">;</span>
 </pre>
 <p class="item_name">SEE ALSO</p>
@@ -377,6 +380,7 @@
 <pre>    <strong>Shuffle</strong> a stack of cards with the provided Rounds.  Each round
     is a single pass, swapping the cards between random slots.
     Default is a single pass.
+    Can also be called as a function, and will return a shuffled deck.
 </pre>
 
 <hr />
@@ -400,7 +404,7 @@
 <pre>    Version of the library itself.
 </pre>
 <p class="item_name">SOURCE</p>
-<pre class="source">   Version <span class="sign">:</span> <span class="keyword">constant</span> String <span class="sign">:</span><span class="sign">=</span> <span class="quote">"1.0.0-rc"</span><span class="sign">;</span>
+<pre class="source">   Version <span class="sign">:</span> <span class="keyword">constant</span> String <span class="sign">:</span><span class="sign">=</span> <span class="quote">"1.1.0"</span><span class="sign">;</span>
 </pre>
 
 <hr />
@@ -410,12 +414,21 @@
 <p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
 <p class="item_name">SOURCE</p>
 <pre class="source">   <span class="keyword">function</span> <strong>As_Box</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">;</span>
-       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black <span class="sign">-</span><span class="sign">-</span> character color<span class="sign">;</span> default<span class="sign">:</span> Black
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> character color<span class="sign">;</span> default<span class="sign">:</span> Black
+       Border <span class="sign">:</span> Character <span class="sign">:</span><span class="sign">=</span> <span class="squote">'|'</span><span class="sign">;</span>
+       Align <span class="sign">:</span> Boolean <span class="sign">:</span><span class="sign">=</span> False
+   <span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> e<span class="sign">.</span>g<span class="sign">.</span> <span class="sign">|</span>4<span class="sign">â</span><span class="sign">™</span><span class="sign">¥</span><span class="sign">|</span>
+   <span class="keyword">function</span> <strong>As_Box</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">;</span>
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> character color<span class="sign">;</span> default<span class="sign">:</span> Black
+       Border <span class="sign">:</span> Wide_Wide_Character<span class="sign">;</span>
+       Align <span class="sign">:</span> Boolean <span class="sign">:</span><span class="sign">=</span> False
    <span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> e<span class="sign">.</span>g<span class="sign">.</span> <span class="sign">|</span>4<span class="sign">â</span><span class="sign">™</span><span class="sign">¥</span><span class="sign">|</span>
 </pre>
 <p class="item_name">PARAMETERS</p>
 <pre>    Self - The card
     Symbol_Color - Which color of character
+    Align - Set spaces to A-9 and J-K so 10 is aligned. False by default.
+    Border - What character to surround the box?
 </pre>
 <p class="item_name">RETURN VALUE</p>
 <pre>    Wide_Wide_String containing rank and suit symbmol between pipes
@@ -427,8 +440,12 @@
    <span class="sign">-</span><span class="sign">-</span>    <span class="keyword">begin</span>
    <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|Aâ™ |"</span>
    <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>As_Box</strong><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"~Aâ™ ~"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>As_Box</strong><span class="sign">,</span> Border <span class="sign">=</span><span class="sign">&gt;</span> <span class="squote">'~'</span><span class="sign">)</span><span class="sign">;</span>
    <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|Aâ™¤|"</span>
    <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>As_Box</strong> <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|A â™ |"</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>As_Box</strong> <span class="sign">(</span>Align <span class="sign">=</span><span class="sign">&gt;</span> True<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
    <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|10â™¥|"</span>
    <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>T_H<span class="sign">.</span><strong>As_Box</strong><span class="sign">)</span><span class="sign">;</span>
    <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"|10â™¡|"</span>
@@ -564,12 +581,14 @@
 <p>[ <a href="#robo_top_of_doc">Top</a> ] [ <a href="#robo2">Cards.Card</a> ] [ <a href="./robo_subprograms.html#robo_top_of_doc">Subprograms</a> ]</p>
 <p class="item_name">SOURCE</p>
 <pre class="source">   <span class="keyword">function</span> <strong>Name_Symbol</strong> <span class="sign">(</span>Self <span class="sign">:</span> Card<span class="sign">;</span>
-       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black <span class="sign">-</span><span class="sign">-</span> character color<span class="sign">;</span> default<span class="sign">:</span> Black
+       Symbol_Color <span class="sign">:</span> Black_White <span class="sign">:</span><span class="sign">=</span> Black<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> character color<span class="sign">;</span> default<span class="sign">:</span> Black
+       Align <span class="sign">:</span> Boolean <span class="sign">:</span><span class="sign">=</span> False
    <span class="sign">)</span> <span class="keyword">return</span> Wide_Wide_String<span class="sign">;</span> <span class="sign">-</span><span class="sign">-</span> e<span class="sign">.</span>g<span class="sign">.</span> 4<span class="sign">â</span><span class="sign">™</span><span class="sign">¥</span>
 </pre>
 <p class="item_name">PARAMETERS</p>
 <pre>    Self - The card
     Symbol_Color - Which color of character
+    Align - Set spaces to A-9 and J-K so 10 is aligned. False by default.
 </pre>
 <p class="item_name">RETURN VALUE</p>
 <pre>    Wide_Wide_String containing rank and suit symbmol
@@ -583,6 +602,8 @@
    <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>Name_Symbol</strong><span class="sign">)</span><span class="sign">;</span>
    <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"Aâ™¤"</span>
    <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>Name_Symbol</strong> <span class="sign">(</span>White<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
+   <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"A â™ "</span>
+   <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>A_S<span class="sign">.</span><strong>Name_Symbol</strong> <span class="sign">(</span>Align <span class="sign">=</span><span class="sign">&gt;</span> True<span class="sign">)</span><span class="sign">)</span><span class="sign">;</span>
    <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"10â™¥"</span>
    <span class="sign">-</span><span class="sign">-</span>       Ada<span class="sign">.</span>Wide_Wide_Text_IO<span class="sign">.</span>Put_Line <span class="sign">(</span>T_H<span class="sign">.</span><strong>Name_Symbol</strong><span class="sign">)</span><span class="sign">;</span>
    <span class="sign">-</span><span class="sign">-</span>       <span class="sign">-</span><span class="sign">-</span>  This will print <span class="quote">"10â™¡"</span>
@@ -1077,7 +1098,7 @@
 
 </div> <!-- content -->
 <div id="footer">
-<p>Generated from ./src/cards.ads with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.44 on 2025-02-09 22:53:26</p>
+<p>Generated from ./src/cards.ads with <a href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html">ROBODoc</a> V4.99.44 on 2025-02-15 22:53:58</p>
 </div> <!-- footer -->
 </body>
 </html>

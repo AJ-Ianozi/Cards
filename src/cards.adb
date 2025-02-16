@@ -57,17 +57,36 @@ package body Cards is
    function Is_Ace (Self : Card) return Boolean is (Self.Rank = Ace);
 
    function Name_Symbol (Self : Card;
-                         Symbol_Color : Black_White := Black)
+                         Symbol_Color : Black_White := Black;
+                         Align : Boolean := False)
    return Wide_Wide_String is
       use Ada.Characters.Conversions;
    begin
-      return To_Wide_Wide_String (Abbr (Self.Rank)) &
+      return To_Wide_Wide_String ((if Align and then Self.Rank /= Ten then
+                                       Abbr (Self.Rank) & " "
+                                    else
+                                       Abbr (Self.Rank))) &
                Symbol (Self.Suit, Symbol_Color);
    end Name_Symbol;
 
-   function As_Box (Self : Card; Symbol_Color : Black_White := Black)
-      return Wide_Wide_String is
-         ("|" & Name_Symbol (Self, Symbol_Color) & "|");
+   function As_Box (Self : Card;
+       Symbol_Color : Black_White := Black; -- character color; default: Black
+       Border : Wide_Wide_Character;
+       Align : Boolean := False
+   ) return Wide_Wide_String is
+         (Border & Name_Symbol (Self, Symbol_Color, Align) & Border);
+
+   function As_Box (Self : Card;
+         Symbol_Color : Black_White := Black; -- character color; default: Black
+         Border : Character := '|';
+         Align : Boolean := False) return Wide_Wide_String
+   is
+      use Ada.Characters.Conversions;
+   begin
+      return Self.As_Box (Symbol_Color => Symbol_Color,
+                          Border => To_Wide_Wide_Character (Border),
+                          Align => Align);
+   end As_Box;
 
    --  "Ace of Spades", "Four of Diamonds" or "4 of Diamonds"
    function Name (Self : Card;
@@ -115,6 +134,13 @@ package body Cards is
             Self.Swap (X, I);
          end loop;
       end loop;
+   end Shuffle;
+
+   function Shuffle (Self : Stack; Rounds : Positive := 1) return Stack is
+      Result : Stack := Self;
+   begin
+      Result.Shuffle (Rounds);
+      return Result;
    end Shuffle;
 
    function Deal (Self : in out Stack;

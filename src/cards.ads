@@ -18,7 +18,7 @@ package Cards is
 
    --  ****d* Cards/Cards.Version
    --  SOURCE
-   Version : constant String := "1.0.0";
+   Version : constant String := "1.1.0";
    --  DESCRIPTION
    --    Version of the library itself.
    --  ****
@@ -431,13 +431,15 @@ package Cards is
    --  ****f* Cards.Card/Name_Symbol
    --  SOURCE
    function Name_Symbol (Self : Card;
-       Symbol_Color : Black_White := Black -- character color; default: Black
+       Symbol_Color : Black_White := Black; -- character color; default: Black
+       Align : Boolean := False
    ) return Wide_Wide_String; -- e.g. 4♥
    --  FUNCTION
    --    Returns the short name of a card using the suit symbol
    --  PARAMETERS
    --    Self - The card
    --    Symbol_Color - Which color of character
+   --    Align - Set spaces to A-9 and J-K so 10 is aligned. False by default.
    --  RETURN VALUE
    --    Wide_Wide_String containing rank and suit symbmol
    --  EXAMPLE
@@ -449,6 +451,8 @@ package Cards is
    --       Ada.Text_IO.Put_Line (A_S.Name_Symbol);
    --       --  This will print "A♤"
    --       Ada.Text_IO.Put_Line (A_S.Name_Symbol (White));
+   --       --  This will print "A ♠"
+   --       Ada.Text_IO.Put_Line (A_S.Name_Symbol (Align => True));
    --       --  This will print "10♥"
    --       Ada.Wide_Wide_Text_IO.Put_Line (T_H.Name_Symbol);
    --       --  This will print "10♡"
@@ -464,7 +468,14 @@ package Cards is
    --  ****f* Cards.Card/As_Box
    --  SOURCE
    function As_Box (Self : Card;
-       Symbol_Color : Black_White := Black -- character color; default: Black
+       Symbol_Color : Black_White := Black; -- character color; default: Black
+       Border : Character := '|';
+       Align : Boolean := False
+   ) return Wide_Wide_String; -- e.g. |4♥|
+   function As_Box (Self : Card;
+       Symbol_Color : Black_White := Black; -- character color; default: Black
+       Border : Wide_Wide_Character;
+       Align : Boolean := False
    ) return Wide_Wide_String; -- e.g. |4♥|
    --  FUNCTION
    --    Returns the short name of a card with pipes on each side.
@@ -472,6 +483,8 @@ package Cards is
    --  PARAMETERS
    --    Self - The card
    --    Symbol_Color - Which color of character
+   --    Align - Set spaces to A-9 and J-K so 10 is aligned. False by default.
+   --    Border - What character to surround the box?
    --  RETURN VALUE
    --    Wide_Wide_String containing rank and suit symbmol between pipes
    --  EXAMPLE
@@ -481,8 +494,12 @@ package Cards is
    --    begin
    --       --  This will print "|A♠|"
    --       Ada.Text_IO.Put_Line (A_S.As_Box);
+   --       --  This will print "~A♠~"
+   --       Ada.Text_IO.Put_Line (A_S.As_Box, Border => '~');
    --       --  This will print "|A♤|"
    --       Ada.Text_IO.Put_Line (A_S.As_Box (White));
+   --       --  This will print "|A ♠|"
+   --       Ada.Text_IO.Put_Line (A_S.As_Box (Align => True));
    --       --  This will print "|10♥|"
    --       Ada.Wide_Wide_Text_IO.Put_Line (T_H.As_Box);
    --       --  This will print "|10♡|"
@@ -614,18 +631,22 @@ package Cards is
    --  ****m* Cards.Stack/Shuffle
    --  SOURCE
    procedure Shuffle (Self : in out Stack; Rounds : Positive := 1);
+   function Shuffle (Self : Stack; Rounds : Positive := 1) return Stack;
    --  FUNCTION
    --    Shuffle a stack of cards with the provided Rounds.  Each round
    --    is a single pass, swapping the cards between random slots.
    --    Default is a single pass.
+   --    Can also be called as a function, and will return a shuffled deck.
    --  PARAMETERS
    --    Self   -- The stack of cards to shuffle
    --    Rounds -- How many times should it be shuffled?  Default is 1 pass.
    --  EXAMPLE
    --    declare
-   --       CD : Stack := Deck;
+   --       CD1 : Stack := Deck;
+   --       --  This will contain a shuffled deck
+   --       CD2 : Stack := CD1.Shuffle;
    --    begin
-   --       CD.Shuffle; --  This will contain 
+   --       CD1.Shuffle; --  This will contain a shuffled deck
    --    end;
    --  SEE ALSO
    --    * Cards.Stack/Deck
